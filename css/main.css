@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Oswald";
+  src: url("../assets/Oswald-VariableFont_wght.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-variation-settings: "wght" 700;
+}
+*, ::before, ::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-block: 0;
+}
+
+img {
+  display: inline-block;
+}
+
+.page-title {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Oswald";
+  font-size: 96px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  line-height: 1;
+}
+
+.home {
+  background-color: black;
+  background-image: url("../assets/geluidsgolven.jpg"), url("../assets/geluidsgolven.jpg"), url("../assets/geluidsgolven.jpg"), url("../assets/IMG_zwart-wit.JPG");
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 100vh;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1em;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3Njc3MvbWFpbi5zY3NzIiwibWFpbi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxxQkFBQTtFQUNBLHFFQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLG1DQUFBO0FDQ0Q7QURFQTtFQUNDLDhCQUFBO1VBQUEsc0JBQUE7QUNBRDs7QURHQTtFQUNDLFNBQUE7QUNBRDs7QURHQTtFQUNDLGVBQUE7QUNBRDs7QURHQTtFQUNDLHFCQUFBO0FDQUQ7O0FER0E7RUFDQyxZQUFBO0VBQ0Esb0JBQUE7RUFBQSxvQkFBQTtFQUFBLGFBQUE7RUFDQSxxQkFBQTtFQUNBLGVBQUE7RUFDQSx5QkFBQTtNQUFBLHNCQUFBO1VBQUEsOEJBQUE7RUFDQSxjQUFBO0FDQUQ7O0FER0E7RUFDQyx1QkFBQTtFQUNBLGdLQUNDO0VBSUQsNEJBQUE7RUFDQSxvQkFBQTtFQUFBLG9CQUFBO0VBQUEsYUFBQTtFQUNBLDRCQUFBO0VBQUEsNkJBQUE7TUFBQSxxQkFBQTtVQUFBLGlCQUFBO0VBQ0EsYUFBQTtFQUNBLHlCQUFBO01BQUEsc0JBQUE7VUFBQSw4QkFBQTtFQUNBLFlBQUE7QUNKRCIsImZpbGUiOiJtYWluLmNzcyJ9 */

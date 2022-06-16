@@ -1,0 +1,47 @@
+@font-face {
+	font-family: 'Oswald';
+	src: url('../assets/Oswald-VariableFont_wght.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+	font-variation-settings: 'wght' 700;
+}
+
+*, ::before, ::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin-block: 0;
+}
+
+img {
+	display: inline-block;
+}
+
+.page-title {
+	color: white;
+	display: flex;
+	font-family: 'Oswald';
+	font-size: 96px;
+	justify-content: space-between;
+	line-height: 1;
+}
+
+.home {
+	background-color: black;
+	background-image:
+		url('../assets/geluidsgolven.jpg'),
+		url('../assets/geluidsgolven.jpg'),
+		url('../assets/geluidsgolven.jpg'),
+		url('../assets/IMG_zwart-wit.JPG');
+	background-repeat: no-repeat;
+	display: flex;
+	flex-flow: column;
+	height: 100vh;
+	justify-content: space-between;
+	padding: 1em;
+}
