@@ -7,17 +7,26 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<main>
-  <section class="home" id="home">
+<div id="home"></div>
     <header class="page-header">
-      <h1 class="page-title">
-        <span>DJ PIGGEL</span>
-        <span>ViNYL FüNK</span>
-      </h1>
+<!-- TODO aanpassen voor productie     -->
+      <a href="#home">
+        <h1 class="page-title">
+          <span>DJ PIGGEL</span>
+          <span>ViNYL FüNK</span>
+        </h1>
+      </a>
     </header>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
+      <button class="btn-toggle-nav">
+        <span class="icon-menu open-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    <nav class="page-nav">
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
         <li><a href="#bio">Bio</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#spotify-list">Spotify List</a></li>
@@ -26,14 +35,55 @@
         <li><a href="#favorite-radio">Favorite Radio</a></li>
       </ul>
     </nav>
+<main class="main">
+  <section class="section home">
   </section>
-  <section class="bio" id="bio"></section>
-  <section class="contact" id="contact"></section>
-  <section class="spotify-list" id="spotify-list"></section>
-  <section class="photos" id="photos"></section>
-  <section class="merchandise" id="merchandise"></section>
-  <section class="favorite-radio" id="favorite-radio"></section>
+  <section class="section bio" id="bio">
+    <h2 class="section-title">Meet the dj</h2>
+    <div class="section-content">
+      <p>
+      DJ Piggel is a vinyl collector, digger and DJ. He plays all kinds of music (as long as it’s available on vinyl & you can dance on it) with a love for Funk, Soul, Rare Groove, Hip-Hop, Reggae & Ska. Resident DJ at Bibelot & Brandstof.
+      <p>
+      <p>
+        And together with DJ AYDQ -> The Funk Soul Brothers.
+      </p>
+    </div>
+  </section>
+  <section class="section contact" id="contact">
+    <h2 class="section-title">Get in touch</h2>
+    <div class="section-content"><p>
+      <a href="mailto:vinyl@dj-piggel.nl">vinyl@dj-piggel.nl</a>
+    </p></div>
+  </section>
+  <section class="section spotify-list" id="spotify-list">
+    <h2>Listen to his tunes</h2>
+    <ul>
+      <li>
+        <a href="https://open.spotify.com/playlist/5pEvgjKVb9ZTn8nZCSbaXx?si=8z7aUenaRyG0j8EOXl_CNQ">Rare Groove</a>
+      </li>
+      <li>
+        <a href="https://open.spotify.com/playlist/0NZ8GuDMDLZjPeMwHHR3qT?si=l_NGLxLXQrSYiYRvJjPouw">Funk, Soul, Disco</a>
+      </li>
+      <li>
+        <a href="">Ska, Reggae</a>
+      </li>
+    </ul>
+
+  </section>
+  <section class="section photos" id="photos">
+    <h2>Watch him perform</h2>
+  </section>
+  <section class="section merchandise" id="merchandise">
+    <h2>Dress like the dj</h2>
+  </section>
+  <section class="section  favorite-radio" id="favorite-radio">
+    <h2>His  favorite radio station</h2>
+    <p><a href="http://www.wefunkradio.com/">wefunkradio.com</a></p>
+  </section>
 </main>
 <footer></footer>
+<div id="navigation-observer-header"></div>
+<div id="navigation-observer-nav"></div>
+<script src="js/script.js"></script>
 </body>
 </html>

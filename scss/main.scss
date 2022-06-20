@@ -3,7 +3,11 @@
 	src: url('../assets/Oswald-VariableFont_wght.ttf') format('truetype');
 	font-weight: bold;
 	font-style: normal;
-	font-variation-settings: 'wght' 700;
+}
+
+:root {
+	--section-home-padding: 1em;
+	scroll-behavior: smooth;
 }
 
 *, ::before, ::after {
@@ -12,6 +16,8 @@
 
 body {
 	margin: 0;
+	font-family: 'Oswald', sans-serif;
+	overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -22,26 +28,284 @@ img {
 	display: inline-block;
 }
 
+:any-link {
+	color: white;
+	display: inline-block;
+	text-decoration: none;
+}
+
+//
+//#navigation-observer-header {
+//	block-size: 1px;
+//	inline-size: 1px;
+//	left: 0;
+//	position: absolute;
+//	top: var(--section-home-padding);
+//}
+
+#navigation-observer-nav {
+	block-size: 1px;
+	inline-size: 1px;
+	left: 0;
+	position: absolute;
+	top: 70vh;
+}
+
+main {
+	background: black;
+}
+
+.page-header {
+	background: linear-gradient(to top, hsl(0 0% 0% / 0.3), black 80%);
+	inline-size: 100vw;
+	padding: var(--section-home-padding);
+	padding-block-end: 60px;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+
+	@media (min-width: 1280px) {
+		background: hsl(0 0% 0% / 0.8);
+	}
+}
+
+.page-header :any-link {
+	text-decoration: none;
+}
+
 .page-title {
 	color: white;
 	display: flex;
-	font-family: 'Oswald';
-	font-size: 96px;
-	justify-content: space-between;
+	flex-flow: column;
+	font-size: 48px;
+	font-variation-settings: 'wght' 700;
+	justify-content: flex-start;
 	line-height: 1;
+
+	@media (min-width: 768px) {
+		column-gap: 1em;
+		flex-flow: row;
+		font-size: 64px;
+	}
+
+	@media (min-width: 1000px) {
+		font-size: 96px;
+		justify-content: space-between;
+	}
+
+	@media (min-width: 1280px) {
+		font-size: 128px;
+	}
+}
+
+.page-title > * {
+	flex: 0 1 auto;
+}
+
+.page-title span + span {
+	font-size: 0.85em;
+	justify-self: flex-end;
+
+	@media (min-width: 768px) {
+		font-size: 1em;
+	}
+}
+
+.btn-toggle-nav {
+	background: none;
+	border: none;
+	display: inline-block;
+	padding: 0;
+	position: fixed;
+	top: 1.75em;
+	right: 1.75em;
+	z-index: 21;
+
+	@media (min-width: 1000px) {
+		display: none;
+	}
+}
+
+.btn-toggle-nav .icon-menu {
+	block-size: 48px;
+	display: inline-block;
+	inline-size: 48px;
+	position: relative;
+
+	&.open-menu > * {
+		border-top: 4px solid white;
+		display: inline-block;
+		inline-size: 100%;
+		padding-block: 2px;
+	}
+
+	&.close-menu > span:first-child {
+
+		&::before, &::after {
+			block-size: 4px;
+			background: white;
+			content: '';
+			inline-size: 48px;
+			position: absolute;
+			top: 1.25em;
+			right: -0.5em;
+		}
+
+		&::before {
+			transform: rotate(45deg);
+		}
+
+		&::after {
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+.page-nav {
+	background: hsl(0 0% 0% / 1);
+	block-size: 100%;
+	display: block;
+	inline-size: 100%;
+	overscroll-behavior: none;
+	padding: 20px 0 0 20px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	transform: translateX(100vw);
+	transition: transform 200ms ease-in-out;
+
+	@media (min-width: 1000px) {
+		inline-size: calc(100% - var(--section-home-padding) * 2);
+		left: var(--section-home-padding);
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		top: 90vh;
+		transform: translateX(0);
+		z-index: 10;
+	}
+
+	&.___slide-in {
+		transform: translateX(0);
+	}
+}
+
+.page-nav.___fixed {
+
+	@media (min-width: 1000px) {
+		background: hsl(0 0% 0% / 0.3);
+		position: sticky;
+		top: 150px;
+		z-index: 10;
+	}
+}
+
+.nav-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	@media (min-width: 1000px) {
+		align-items: flex-start;
+		column-gap: 2em;
+		display: flex;
+		overflow: scroll;
+	}
+}
+
+.nav-list :any-link {
+	font: 34px/1 'Oswald';
+	font-variant: all-small-caps;
+	font-variation-settings: 'wght' 500;
+	padding: 0 0 0.25em;
+
+	@media (min-width: 1000px) {
+		font-size: 36px;
+	}
+}
+
+.nav-list :any-link:is(:active, :hover) {
+	// optie 1 golven
+	//background: url('../assets/geluidsgolven.jpg') 50% 50% / auto 100px;
+	// optie 2 kleurverloop met grijze tekst
+	//background: linear-gradient(
+	//		to bottom,
+	//		black,
+	//		hsl(200deg 50% 50%),
+	//		hsl(200deg 50% 90%) 55%,
+	//		hsl(200deg 50% 50%),
+	//		black
+	//);
+	//color: hsl(0 0% 20%)
+	// optie 3 tekst in golvenkleur
+	color: hsl(200, 50%, 70%);
+}
+
+.section {
+	background: black;
+	color: white;
+	min-block-size: 100vh;
+	padding-block-start: 30vmax;
+	padding-inline: var(--section-home-padding);
+
+	&.___padding {
+		padding-block-start: calc(25vh);
+	}
+
+	p {
+		font-size: 1.2em;
+		max-inline-size: 50ch;
+		margin-inline-start: 20%;
+	}
+
+	@media (min-width: 1000px) {
+		padding-block-start: 30vh;
+	}
+}
+
+.section-title {
+	color: white;
+	font-size: 64px;
+	font-variation-settings: 'wght' 700;
 }
 
 .home {
-	background-color: black;
-	background-image:
-		url('../assets/geluidsgolven.jpg'),
-		url('../assets/geluidsgolven.jpg'),
-		url('../assets/geluidsgolven.jpg'),
-		url('../assets/IMG_zwart-wit.JPG');
-	background-repeat: no-repeat;
+	--bg-waves: url('../assets/geluidsgolven.jpg');
+	background: var(--bg-waves) right 2020px top 55% no-repeat,
+	var(--bg-waves) right 1676px top 55% no-repeat,
+	var(--bg-waves) right 1332px top 55% no-repeat,
+	var(--bg-waves) right 883px top 55% no-repeat,
+	var(--bg-waves) right 539px top 55% no-repeat,
+	var(--bg-waves) right 195px top 55% no-repeat,
+	linear-gradient(black, black) right 230px top 50% / 50px 200px no-repeat,
+	url('../assets/IMG_zwart-wit.JPG') right -50px top 50% / auto 350px no-repeat;
+	block-size: 100vh;
 	display: flex;
 	flex-flow: column;
-	height: 100vh;
 	justify-content: space-between;
-	padding: 1em;
+	padding: var(--section-home-padding);
+	position: relative;
+
+	@media (min-width: 768px) {
+		background: var(--bg-waves) right 1945px top 65% no-repeat,
+		var(--bg-waves) right 1601px top 65% no-repeat,
+		var(--bg-waves) right 1257px top 65% no-repeat,
+		var(--bg-waves) right 913px top 65% no-repeat,
+		var(--bg-waves) right 569px top 65% no-repeat,
+		var(--bg-waves) right 235px top 65% no-repeat,
+		linear-gradient(black, black) right 275px top 40% / 50px 250px no-repeat,
+		url('../assets/IMG_zwart-wit.JPG') right -50px top 70% / auto 400px no-repeat;
+	}
+
+	@media (min-width: 1280px) {
+		background: var(--bg-waves) right 2020px top 55% no-repeat,
+		var(--bg-waves) right 1676px top 55% no-repeat,
+		var(--bg-waves) right 1332px top 55% no-repeat,
+		var(--bg-waves) right 988px top 55% no-repeat,
+		var(--bg-waves) right 644px top 55% no-repeat,
+		var(--bg-waves) right 300px top 55% no-repeat,
+		linear-gradient(black, black) right 360px top 40% / 50px 150px no-repeat,
+		url('../assets/IMG_zwart-wit.JPG') right -50px top 50% / auto 500px no-repeat;
+	}
 }
