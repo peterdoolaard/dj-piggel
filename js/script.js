@@ -2,17 +2,36 @@ let NAV_IS_FIXED = false;
 let NAV_IS_OPEN = false;
 
 const pageTitle = document.querySelector('.page-title');
+const pageTitleLink = document.querySelector('.page-header > a');
 const pageNav = document.querySelector('.page-nav');
+const navLink = pageNav.querySelectorAll('a');
 const btnToggleNav = document.querySelector('.btn-toggle-nav');
 const iconMenu = document.querySelector('.icon-menu');
+
+pageTitleLink.addEventListener('click', () => {
+  navLink.forEach(link => {
+    link.removeAttribute('aria-current');
+  });
+  pageNav.querySelector('a[href="#home"]').setAttribute('aria-current', 'page')
+})
+navLink.forEach(link => {
+  if (link.hash === "#home") {
+    link.setAttribute('aria-current', 'page')
+  }
+});
+
+// herlaadt pagina bij draaien
+screen.orientation.addEventListener('change', () => {
+  document.location.reload()
+});
 
 // intersectionObserver maakt navigatie fixed
 let navigationObserver = new IntersectionObserver(entries => {
   if (entries[0].boundingClientRect.y < 0) {
-    pageNav.classList.add('___fixed');
+    pageNav.classList.add('___sticky');
     NAV_IS_FIXED = true;
   } else {
-    pageNav.classList.remove('___fixed');
+    pageNav.classList.remove('___sticky');
     NAV_IS_FIXED = false;
   }
 });
@@ -28,8 +47,8 @@ function buildThresholdList() {
   thresholds.push(0);
   return thresholds;
 }
-let fontSize = window.getComputedStyle(pageTitle).getPropertyValue('font-size').substring(-1,3);
-console.log(window.getComputedStyle(pageTitle).getPropertyValue('font-size').substring(-1,3));
+let fontSize = window.getComputedStyle(pageTitle).getPropertyValue('font-size')
+fontSize = fontSize.substring(0,fontSize.length - 2);
 const options = {
   root: null,
   threshold: buildThresholdList()
@@ -66,8 +85,17 @@ function toggleNav() {
   }
 }
 
+function setLinkActive(event) {
+  navLink.forEach(link => {
+    link.removeAttribute('aria-current');
+    event.target.setAttribute('aria-current', 'page');
+  })
+}
+
 btnToggleNav.addEventListener('click', toggleNav);
 pageNav.addEventListener('click', toggleNav);
+navLink.forEach(link => link.addEventListener('click', setLinkActive));
+
 
 window.onSpotifyIframeApiReady = (IFrameAPI) => {
   let element = document.getElementById('embed-iframe');

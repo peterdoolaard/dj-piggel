@@ -5,8 +5,17 @@
 	font-style: normal;
 }
 
+.remark {
+	background: hsl(180deg 50% 75%);
+	color: black;
+	max-inline-size: 40ch;
+	padding: 2em;
+}
+
 :root {
 	--section-home-padding: 1em;
+	--page-nav-top: 90vh;
+	--page-nav-top-sticky: 80px;
 	scroll-behavior: smooth;
 }
 
@@ -35,6 +44,7 @@ img {
 	text-decoration: none;
 }
 
+
 //
 //#navigation-observer-header {
 //	block-size: 1px;
@@ -49,10 +59,10 @@ img {
 	inline-size: 1px;
 	left: 0;
 	position: absolute;
-	top: 76%;
+	top: calc(var(--page-nav-top) - var(--page-nav-top-sticky) - 10px);
 
 	@media (min-width: 1280px) {
-		top: 80%;
+		top: 81%;
 	}
 }
 
@@ -61,7 +71,7 @@ main {
 }
 
 .page-header {
-	background: linear-gradient(to top, hsl(0 0% 0% / 0.3), black 80%);
+	background: linear-gradient(to top, hsl(0 0% 0% / 0.5), hsl(0 0% 0% / 1) 80%);
 	inline-size: 100vw;
 	padding: var(--section-home-padding);
 	position: fixed;
@@ -74,6 +84,7 @@ main {
 }
 
 .page-header :any-link {
+	display: block;
 	text-decoration: none;
 }
 
@@ -87,9 +98,9 @@ main {
 	line-height: 1;
 
 	@media (min-width: 768px) {
-		column-gap: 1em;
+		column-gap: 32px;
 		flex-flow: row;
-		font-size: 64px;
+		//font-size: 64px;
 	}
 
 	@media (min-width: 1000px) {
@@ -171,7 +182,6 @@ main {
 	block-size: 100%;
 	display: block;
 	inline-size: 100%;
-	//overscroll-behavior: none;
 	padding: 20px 0 0 20px;
 	position: fixed;
 	top: 0;
@@ -186,26 +196,30 @@ main {
 		left: var(--section-home-padding);
 		padding: 0 0 1em 0;
 		position: absolute;
-		top: 90vh;
+		top: var(--page-nav-top);
 		transform: translateX(0);
-		z-index: 10;
+		z-index: 11;
 	}
 
 	&.___slide-in {
 		transform: translateX(0);
+
+		@media (min-width: 500px) {
+			transform: translate(500px);
+		}
 	}
 }
 
-.page-nav.___fixed {
+.page-nav.___sticky {
 
 	@media (min-width: 1000px) {
-		background: hsl(0 0% 0% / 0.3);
+		background: linear-gradient(to top, hsl(0 0% 0% / 0.2), hsl(0 0% 0% / 0.5));
 		position: sticky;
-		top: 82px;
+		top: var(--page-nav-top-sticky);
 	}
 
 	@media (min-width: 1280px) {
-		top: 82px;
+		top: var(page-nav-top-sticky);
 	}
 }
 
@@ -216,7 +230,7 @@ main {
 
 	@media (min-width: 1000px) {
 		align-items: flex-start;
-		column-gap: 2em;
+		column-gap: 0.5em;
 		display: flex;
 		overflow: scroll;
 	}
@@ -226,14 +240,18 @@ main {
 	font: 34px/1 'Oswald';
 	font-variant: all-small-caps;
 	font-variation-settings: 'wght' 500;
-	padding: 0 0 0.25em;
+	padding: 0 0.5em 0.25em;
+
+	&:first-child {
+		padding-inline-start: 0;
+}
 
 	@media (min-width: 1000px) {
 		font-size: 36px;
 	}
 }
 
-.nav-list :any-link:is(:active, :hover) {
+.nav-list :any-link:is(:active, :hover, [aria-current="page"]) {
 	// optie 1 golven
 	//background: url('../assets/geluidsgolven.jpg') 50% 50% / auto 100px;
 	// optie 2 kleurverloop met grijze tekst
