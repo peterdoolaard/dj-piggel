@@ -15,6 +15,7 @@
 }
 
 body {
+	background: hsl(0 0% 0% / 1);
 	margin: 0;
 	font-family: 'Oswald', sans-serif;
 	overflow-x: hidden;
@@ -48,7 +49,11 @@ img {
 	inline-size: 1px;
 	left: 0;
 	position: absolute;
-	top: 70vh;
+	top: 76%;
+
+	@media (min-width: 1280px) {
+		top: 80%;
+	}
 }
 
 main {
@@ -59,7 +64,6 @@ main {
 	background: linear-gradient(to top, hsl(0 0% 0% / 0.3), black 80%);
 	inline-size: 100vw;
 	padding: var(--section-home-padding);
-	padding-block-end: 60px;
 	position: fixed;
 	top: 0;
 	z-index: 10;
@@ -90,6 +94,7 @@ main {
 
 	@media (min-width: 1000px) {
 		font-size: 96px;
+		flex: 1;
 		justify-content: space-between;
 	}
 
@@ -166,7 +171,7 @@ main {
 	block-size: 100%;
 	display: block;
 	inline-size: 100%;
-	overscroll-behavior: none;
+	//overscroll-behavior: none;
 	padding: 20px 0 0 20px;
 	position: fixed;
 	top: 0;
@@ -176,10 +181,10 @@ main {
 	transition: transform 200ms ease-in-out;
 
 	@media (min-width: 1000px) {
+		block-size: auto;
 		inline-size: calc(100% - var(--section-home-padding) * 2);
 		left: var(--section-home-padding);
-		overflow: hidden;
-		padding: 0;
+		padding: 0 0 1em 0;
 		position: absolute;
 		top: 90vh;
 		transform: translateX(0);
@@ -196,8 +201,11 @@ main {
 	@media (min-width: 1000px) {
 		background: hsl(0 0% 0% / 0.3);
 		position: sticky;
-		top: 150px;
-		z-index: 10;
+		top: 82px;
+	}
+
+	@media (min-width: 1280px) {
+		top: 82px;
 	}
 }
 
@@ -244,24 +252,20 @@ main {
 
 .section {
 	background: black;
+	block-size: 100vh;
 	color: white;
-	min-block-size: 100vh;
-	padding-block-start: 30vmax;
 	padding-inline: var(--section-home-padding);
-
-	&.___padding {
-		padding-block-start: calc(25vh);
-	}
 
 	p {
 		font-size: 1.2em;
 		max-inline-size: 50ch;
-		margin-inline-start: 20%;
+		margin-inline: 20% 10%;
 	}
 
-	@media (min-width: 1000px) {
-		padding-block-start: 30vh;
-	}
+}
+
+.section-inner {
+	padding-block-start: 25vh;
 }
 
 .section-title {
@@ -308,4 +312,19 @@ main {
 		linear-gradient(black, black) right 360px top 40% / 50px 150px no-repeat,
 		url('../assets/IMG_zwart-wit.JPG') right -50px top 50% / auto 500px no-repeat;
 	}
+}
+
+.spotify-list-container {
+	align-items: flex-start;
+	display: flex;
+	flex-flow: wrap;
+	gap: 2em;
+	padding-block-start: 2em;
+}
+
+.spotify-player {
+	block-size: 380px;
+	border: none;
+	flex: 0 1 300px;
+	max-inline-size: 100%;
 }
