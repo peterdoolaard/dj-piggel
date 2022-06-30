@@ -25,7 +25,7 @@
 body {
   background: hsl(0deg, 0%, 0%);
   margin: 0;
-  font-family: "Oswald", sans-serif;
+  font: 20px "Oswald", sans-serif;
   overflow-x: hidden;
 }
 
@@ -125,10 +125,10 @@ main {
   background: none;
   border: none;
   display: inline-block;
-  padding: 0;
+  padding: 16px 20px 16px 16px;
   position: fixed;
-  top: 1.75em;
-  right: 1.75em;
+  top: 0;
+  right: 0;
   z-index: 21;
 }
 @media (min-width: 1000px) {
@@ -230,7 +230,7 @@ main {
   font: 34px/1 "Oswald";
   font-variant: all-small-caps;
   font-variation-settings: "wght" 500;
-  padding: 0 0.5em 0.25em;
+  padding: 0.25em 0.5em 0.25em;
 }
 .nav-list :any-link:first-child {
   padding-inline-start: 0;
@@ -245,14 +245,79 @@ main {
   color: hsl(200deg, 50%, 70%);
 }
 
+.icon-container {
+  animation: turn 1.3333333333s 200ms linear 2;
+  block-size: 48px;
+  display: block;
+  inline-size: 48px;
+  left: calc(50% - 40px);
+  opacity: 1;
+  position: absolute;
+  top: 90%;
+  transform-origin: center center;
+  transition: opacity 400ms ease-out;
+}
+
+.down-arrowhead {
+  fill: hsl(200deg, 50%, 70%);
+}
+.down-arrowhead.___hidden {
+  opacity: 0;
+}
+.down-arrowhead.___none {
+  display: none;
+}
+@media (min-width: 768px) {
+  .down-arrowhead {
+    display: none;
+  }
+}
+
+@keyframes turn {
+  0% {
+    top: 90%;
+    transform: rotate(0);
+  }
+  10% {
+    top: 91%;
+  }
+  20% {
+    top: 92%;
+  }
+  30% {
+    top: 93%;
+  }
+  40% {
+    top: 92%;
+  }
+  50% {
+    top: 90%;
+  }
+  60% {
+    top: 91%;
+  }
+  70% {
+    top: 92%;
+  }
+  80% {
+    top: 93%;
+  }
+  90% {
+    top: 92%;
+  }
+  100% {
+    top: 90%;
+    transform: rotate(360deg);
+  }
+}
 .section {
   background: black;
-  min-block-size: 100vh;
+  block-size: 100vh;
   color: white;
   padding-inline: var(--section-home-padding);
+  position: relative;
 }
 .section p {
-  font-size: 1.2em;
   max-inline-size: 50ch;
   margin-inline: 20% 10%;
 }
@@ -263,8 +328,17 @@ main {
 
 .section-title {
   color: white;
-  font-size: 64px;
+  font-size: 32px;
   font-variation-settings: "wght" 700;
+  padding-block-end: 16px;
+}
+.section-title .___large-only {
+  display: none;
+}
+@media (min-width: 1000px) {
+  .section-title .___large-only {
+    display: initial;
+  }
 }
 
 .home {
@@ -288,19 +362,17 @@ main {
   }
 }
 
-.spotify-list-container {
-  align-items: flex-start;
-  display: flex;
-  flex-flow: wrap;
-  gap: 2em;
-  padding-block-start: 2em;
+:is(.contact, .favorite-radio, .spotify-list) :any-link {
+  color: hsl(200deg, 50%, 70%);
 }
 
-.spotify-player {
-  block-size: 380px;
-  border: none;
-  flex: 0 1 300px;
-  max-inline-size: 100%;
+ul {
+  list-style: none;
+}
+
+.spotify-list li::before {
+  font-size: 1em;
+  content: url("/assets/vinyl-bullet.svg");
 }
 
 /*# sourceMappingURL=main.css.map */
