@@ -77,14 +77,6 @@ let homeObserver = new IntersectionObserver(entries => {
     } else {
       pageTitle.style.fontSize = (fontSize * entry.intersectionRatio).toString() + 'px';
     }
-    if (entry.intersectionRatio < 0.9) {
-      downArrow.classList.add('___hidden');
-      downArrow.classList.add('___none');
-    }
-    if (entry.intersectionRatio >= 0.95) {
-      downArrow.classList.remove('___none');
-      downArrow.classList.remove('___hidden');
-    }
   });
 }, options);
 homeObserver.observe(document.querySelector('.home'));
@@ -134,34 +126,84 @@ window.addEventListener('hashchange', () => {
 const photos = [
   {
     index: 1,
-    imgName: '1988-dj-piggel-flash-1@0.5x.webp'
+    imgName: '1988-dj-piggel-flash-1@0.5x.webp',
+    imgNameHi: '1988-dj-piggel-flash-1.webp'
   },
   {
     index: 2,
-    imgName: '2005 DJ-Piggel-02@0.5x.webp'
+    imgName: '2005 DJ-Piggel-02@0.5x.webp',
+    imgNameHi: '2005 DJ-Piggel-02.webp'
   },
   {
     index: 3,
-    imgName: '2014 DJ Piggel-2@0.5x.webp'
+    imgName: '2014 DJ Piggel-2@0.5x.webp',
+    imgNameHi: '2014 DJ Piggel-2.webp'
   },
   {
     index: 4,
-    imgName: '2014 foto  gemaakt door Marleen@0.5x.webp'
+    imgName: '2014 foto  gemaakt door Marleen@0.5x.webp',
+    imgNameHi: '2014 foto  gemaakt door Marleen@2x.webp'
   },
   {
     index: 5,
-    imgName: '2015 DJ Piggel bw@0.5x.webp'
+    imgName: '2015 DJ Piggel bw@0.5x.webp',
+    imgNameHi: '2015 DJ Piggel bw.webp'
   },
   {
     index: 6,
-    imgName: '2015 DJ Piggel-1@0.5x.webp'
+    imgName: '2015 DJ Piggel-1@0.5x.webp',
+    imgNameHi: '2015 DJ Piggel-1@2x.webp'
   },
 ];
 
-const carouselFirst = document.querySelector('.carousel-item.first');
-const carouselMain = document.querySelector('.carousel-item.main');
-const carouselLast = document.querySelector('.carousel-item.last');
+// initialize carousel
+const imageElement = document.querySelector('.carousel-item img');
+const imageModal = document.querySelector('.carousel-modal');
+const btnCloseModal = imageModal.querySelector('.btn-close');
+const imageModalImage = imageModal.querySelector('img');
+let image = photos[0];
+let index = image.index;
+let imageSrc = `assets/photos/${image.imgName}`;
+let imageSrcHi = `assets/photos/${image.imgNameHi}`;
+imageElement.src = imageSrc;
 
-carouselFirst.style.backgroundImage = `url( /assets/photos/${photos[0].imgName} )`;
-carouselMain.style.backgroundImage = `url( /assets/photos/${photos[1].imgName} )`;
-carouselLast.style.backgroundImage = `url( /assets/photos/${photos[2].imgName} )`;
+const previous = document.querySelector('.previous');
+const next = document.querySelector('.next');
+
+function showPrevious () {
+  index = image.index - 1;
+  if (index <= 0) {
+    index = photos.length
+  }
+    image = photos[index - 1];
+    imageSrc = `assets/photos/${image.imgName}`;
+    imageSrcHi = `assets/photos/${image.imgNameHi}`;
+    imageElement.src = imageSrc;
+}
+
+function showNext () {
+  index = image.index + 1;
+  if (index > photos.length) {
+    index = 1;
+  }
+    image = photos[index - 1];
+    imageSrc = `assets/photos/${image.imgName}`;
+    imageSrcHi = `assets/photos/${image.imgNameHi}`;
+    imageElement.src = imageSrc;
+}
+
+function showModal () {
+  imageModalImage.src = imageSrcHi;
+  imageModal.classList.add('___show');
+}
+
+function closeModal () {
+  imageModalImage.src= '';
+  imageModal.classList.remove('___show');
+}
+
+previous.addEventListener('click', showPrevious);
+next.addEventListener('click', showNext);
+imageElement.addEventListener('click', showModal);
+btnCloseModal.addEventListener('click', closeModal);
+imageModalImage.addEventListener('click', closeModal);
