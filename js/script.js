@@ -1,6 +1,7 @@
 let NAV_IS_FIXED = false;
 let NAV_IS_OPEN = false;
 
+const home = document.querySelector('#home');
 const pageTitle = document.querySelector('.page-title');
 const pageTitleLink = document.querySelector('.page-header > a');
 const pageNav = document.querySelector('.page-nav');
@@ -11,12 +12,11 @@ const downArrow = document.querySelector('.down-arrowhead');
 
 pageTitleLink.addEventListener('click', () => {
   navLink.forEach(link => {
-    document.body.style.position = 'fixed';
     link.removeAttribute('aria-current');
   });
   pageNav.querySelector('a[href="#home"]').setAttribute('aria-current', 'page');
   pageTitle.querySelector('span:last-child').classList.remove('___none');
-  document.body.style.position = 'static';
+  home.scrollIntoView({behavior: "smooth"});
 });
 
 downArrow.addEventListener('click', () => {
@@ -35,21 +35,26 @@ navLink.forEach(link => {
 });
 
 // herlaadt pagina bij draaien
-screen.orientation.addEventListener('change', () => {
-  document.location.reload();
-});
+// screen.orientation.addEventListener('change', () => {
+//   document.location.reload();
+// });
 
 // intersectionObserver maakt navigatie fixed
-let navigationObserver = new IntersectionObserver(entries => {
-  if (entries[0].boundingClientRect.y < 0) {
-    pageNav.classList.add('___sticky');
-    NAV_IS_FIXED = true;
-  } else {
-    pageNav.classList.remove('___sticky');
-    NAV_IS_FIXED = false;
-  }
-});
-navigationObserver.observe(document.querySelector('#navigation-observer-nav'));
+// let navigationObserver = new IntersectionObserver(entries => {
+//   if (entries[0].boundingClientRect.y < 0) {
+//     pageNav.classList.add('___sticky');
+//     NAV_IS_FIXED = true;
+//   } else {
+//     pageNav.classList.remove('___sticky');
+//     NAV_IS_FIXED = false;
+//   }
+// });
+// navigationObserver.observe(document.querySelector('#navigation-observer-nav'));
+
+// IntersectionObserver voor de koppeling tussen secties en navigatie
+
+// TODO
+
 
 // Voor de responsieve header homeObserver
 function buildThresholdList() {
@@ -95,13 +100,8 @@ function toggleNav() {
     pageNav.classList.add('___slide-in');
     iconMenu.classList.add('close-menu');
     iconMenu.classList.remove('open-menu');
-    // document.body.style.position = 'fixed';
     NAV_IS_OPEN = true;
   }
-}
-
-function setLinkActive(event) {
-
 }
 
 btnToggleNav.addEventListener('click', toggleNav);

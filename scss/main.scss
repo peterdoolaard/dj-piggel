@@ -68,6 +68,13 @@ img {
 
 main {
 	background: black;
+	block-size: 100vh;
+	overflow-y: scroll;
+	scroll-snap-type: y mandatory;
+
+	> section {
+		scroll-snap-align: start;
+	}
 }
 
 .page-header {
@@ -339,7 +346,7 @@ main {
 }
 
 .section-inner {
-	padding-block-start: 25vh;
+	padding-block-start: 20vh;
 }
 
 .section-title {
