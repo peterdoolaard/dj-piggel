@@ -431,37 +431,38 @@ main {
 	max-block-size: 70vh;
 	position: relative;
 
-	> .previous {
+	> .btn {
 		align-self: center;
-		background: url('../assets/left-arrow.svg') black no-repeat 40% center  ;
 		block-size: 48px;
+		border: none;
 		border-radius: 50%;
 		content: '';
-		grid-column: 1;
-		grid-row: 1;
+		cursor: hand;
 		inline-size: 48px;
-		justify-self: end;
 		padding: 16px;
+		z-index: 1;
+
+		&:hover {
+			border: 2px solid hsl(200, 50%, 70%);
+		}
 
 		@media (min-width: 1000px) {
 			padding: 32px;
 		}
 	}
 
+	> .previous {
+		background: url('../assets/left-arrow.svg') black no-repeat 40% center  ;
+		grid-column: 1;
+		grid-row: 1;
+		justify-self: end;
+	}
+
 	> .next {
-		align-self: center;
 		background: url('../assets/right-arrow.svg') black no-repeat 60% center;
-		block-size: 48px;
-		border-radius: 50%;
-		content: '';
 		grid-column: 3 / 4;
 		grid-row: 1;
 		inline-size: 48px;
-		padding: 16px;
-
-		@media (min-width: 1000px) {
-			padding: 32px;
-		}
 	}
 
 	img {
@@ -518,6 +519,18 @@ main {
 }
 
 .card {
+
+	&:last-child {
+		margin-block-end: 50vh;
+	}
+
+	@media (min-width: 768px) {
+		max-inline-size: 40%;
+	}
+
+	@media (min-width: 1024px) {
+		max-inline-size: 400px;
+	}
 
 	.card-title {
 

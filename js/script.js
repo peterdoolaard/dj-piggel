@@ -9,6 +9,7 @@ const navLink = pageNav.querySelectorAll('a');
 const btnToggleNav = document.querySelector('.btn-toggle-nav');
 const iconMenu = document.querySelector('.icon-menu');
 const downArrow = document.querySelector('.down-arrowhead');
+const cardImage = document.querySelectorAll('.card');
 
 pageTitleLink.addEventListener('click', () => {
   navLink.forEach(link => {
@@ -35,9 +36,9 @@ navLink.forEach(link => {
 });
 
 // herlaadt pagina bij draaien
-// screen.orientation.addEventListener('change', () => {
-//   document.location.reload();
-// });
+screen.orientation.addEventListener('change', () => {
+  document.location.reload();
+});
 
 // intersectionObserver maakt navigatie fixed
 // let navigationObserver = new IntersectionObserver(entries => {
@@ -232,3 +233,8 @@ next.addEventListener('click', showNext);
 imageElement.addEventListener('click', showModal);
 btnCloseModal.addEventListener('click', closeModal);
 imageModalImage.addEventListener('click', closeModal);
+
+cardImage.forEach(card => card.addEventListener('click', (event) => {
+  imageModalImage.src = event.target.dataset.imgHires;
+  imageModal.classList.add('___show');
+}));
