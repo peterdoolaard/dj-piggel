@@ -46,6 +46,15 @@ img {
 	color: white;
 	display: inline-block;
 	text-decoration: none;
+
+	[href^="#home"]:hover {
+		text-decoration: underline;
+		text-decoration-color: hsl(200, 50%, 70%);
+	}
+}
+
+:is(:focus, :focus-visible, :focus-within) {
+	outline-color: hsl(200, 50%, 70%);
 }
 
 .___none {
@@ -334,7 +343,7 @@ main {
 
 .section {
 	background: black;
-	block-size: 100vh;
+	min-block-size: 100vh;
 	color: white;
 	padding-inline: var(--section-home-padding);
 	position: relative;
@@ -406,7 +415,7 @@ main {
 	}
 }
 
-:is(.contact, .favorite-radio, .spotify-list) :any-link {
+:is(.contact, .favorite-radio, .spotify-list, .merchandise) :any-link {
 	color: hsl(200, 50%, 70%);
 }
 
@@ -499,4 +508,24 @@ main {
 		align-items: center;
 		justify-content: center;
 	}
+}
+
+.cards-container {
+	display: flex;
+	flex-flow: wrap;
+	gap: 2rem;
+	margin-block-start: 3rem;
+}
+
+.card {
+
+	.card-title {
+
+	}
+
+	.card-image img {
+		block-size: auto;
+		inline-size: 100%;
+	}
+
 }

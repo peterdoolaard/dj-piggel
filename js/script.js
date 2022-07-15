@@ -126,33 +126,58 @@ window.addEventListener('hashchange', () => {
 const photos = [
   {
     index: 1,
-    imgName: '1988-dj-piggel-flash-1@0.5x.webp',
-    imgNameHi: '1988-dj-piggel-flash-1.webp'
+    imgName: 'dj-piggel-001@0.5x.webp',
+    imgNameHi: 'dj-piggel-001.webp'
   },
   {
     index: 2,
-    imgName: '2005 DJ-Piggel-02@0.5x.webp',
-    imgNameHi: '2005 DJ-Piggel-02.webp'
+    imgName: 'dj-piggel-002@0.5x.webp',
+    imgNameHi: 'dj-piggel-002.webp'
   },
   {
     index: 3,
-    imgName: '2014 DJ Piggel-2@0.5x.webp',
-    imgNameHi: '2014 DJ Piggel-2.webp'
+    imgName: 'dj-piggel-003@0.5x.webp',
+    imgNameHi: 'dj-piggel-003.webp'
   },
   {
     index: 4,
-    imgName: '2014 foto  gemaakt door Marleen@0.5x.webp',
-    imgNameHi: '2014 foto  gemaakt door Marleen@2x.webp'
+    imgName: 'dj-piggel-004@0.5x.webp',
+    imgNameHi: 'dj-piggel-004.webp'
   },
   {
     index: 5,
-    imgName: '2015 DJ Piggel bw@0.5x.webp',
-    imgNameHi: '2015 DJ Piggel bw.webp'
+    imgName: 'dj-piggel-005@0.5x.webp',
+    imgNameHi: 'dj-piggel-005.webp'
   },
   {
     index: 6,
-    imgName: '2015 DJ Piggel-1@0.5x.webp',
-    imgNameHi: '2015 DJ Piggel-1@2x.webp'
+    imgName: 'dj-piggel-006@0.5x.webp',
+    imgNameHi: 'dj-piggel-006.webp'
+  },
+  {
+    index: 7,
+    imgName: 'dj-piggel-007.webp',
+    imgNameHi: 'dj-piggel-007.webp'
+  },
+  {
+    index: 8,
+    imgName: 'dj-piggel-008.webp',
+    imgNameHi: 'dj-piggel-008.webp'
+  },
+  {
+    index: 9,
+    imgName: 'dj-piggel-009.webp',
+    imgNameHi: 'dj-piggel-009.webp'
+  },
+  {
+    index: 10,
+    imgName: 'dj-piggel-010.webp',
+    imgNameHi: 'dj-piggel-010.webp'
+  },
+  {
+    index: 11,
+    imgName: 'dj-piggel-011@0.5x.webp',
+    imgNameHi: 'dj-piggel-011.webp'
   },
 ];
 
