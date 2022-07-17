@@ -36,9 +36,15 @@ navLink.forEach(link => {
 });
 
 // herlaadt pagina bij draaien
+if (screen.orientation) {
 screen.orientation.addEventListener('change', () => {
   document.location.reload();
 });
+} else {
+  window.addEventListener('resize', () => {
+    document.location.reload();
+  })
+}
 
 // intersectionObserver maakt navigatie fixed
 // let navigationObserver = new IntersectionObserver(entries => {
@@ -119,7 +125,6 @@ window.addEventListener('hashchange', () => {
     pageTitle.querySelector('span:last-child').classList.add('___none');
   }
   if (document.location.hash === '#home') {
-    console.log('home');
     pageTitle.querySelector('span:last-child').classList.remove('___none');
   }
 })
