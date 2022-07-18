@@ -5,11 +5,17 @@
 	font-style: normal;
 }
 
-.remark {
-	background: hsl(180deg 50% 75%);
-	color: black;
-	max-inline-size: 40ch;
-	padding: 2em;
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal;
 }
 
 :root {
@@ -247,7 +253,6 @@ main {
 		align-items: flex-start;
 		column-gap: 0.5em;
 		display: flex;
-		overflow: scroll;
 	}
 }
 
