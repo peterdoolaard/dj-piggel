@@ -3,6 +3,7 @@
 	src: url('../assets/Oswald-VariableFont_wght.ttf') format('truetype');
 	font-weight: bold;
 	font-style: normal;
+	font-display: swap;
 }
 
 .screen-reader-text {
@@ -231,18 +232,18 @@ main {
 	}
 }
 
-.page-nav.___sticky {
-
-	@media (min-width: 1000px) {
-		background: linear-gradient(to top, hsl(0 0% 0% / 0.2), hsl(0 0% 0% / 0.5));
-		position: sticky;
-		top: var(--page-nav-top-sticky);
-	}
-
-	@media (min-width: 1280px) {
-		top: var(page-nav-top-sticky);
-	}
-}
+//.page-nav.___sticky {
+//
+//	@media (min-width: 1000px) {
+//		background: linear-gradient(to top, hsl(0 0% 0% / 0.2), hsl(0 0% 0% / 0.5));
+//		position: sticky;
+//		top: var(--page-nav-top-sticky);
+//	}
+//
+//	@media (min-width: 1280px) {
+//		top: var(--page-nav-top-sticky);
+//	}
+//}
 
 .nav-list {
 	list-style: none;
@@ -554,5 +555,4 @@ main {
 		block-size: auto;
 		inline-size: 100%;
 	}
-
 }
