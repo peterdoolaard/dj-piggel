@@ -1,4 +1,3 @@
-let NAV_IS_FIXED = false;
 let NAV_IS_OPEN = false;
 
 const home = document.querySelector('#home');
@@ -161,11 +160,6 @@ const photos = [
     imgNameHi: 'dj-piggel-006.webp'
   },
   {
-    index: 7,
-    imgName: 'dj-piggel-007.webp',
-    imgNameHi: 'dj-piggel-007.webp'
-  },
-  {
     index: 8,
     imgName: 'dj-piggel-008.webp',
     imgNameHi: 'dj-piggel-008.webp'
@@ -184,6 +178,11 @@ const photos = [
     index: 11,
     imgName: 'dj-piggel-011@0.5x.webp',
     imgNameHi: 'dj-piggel-011.webp'
+  },
+  {
+    index: 12,
+    imgName: 'dj-piggel-012@0.5x.webp',
+    imgNameHi: 'dj-piggel-012.webp'
   },
 ];
 
