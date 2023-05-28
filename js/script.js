@@ -34,7 +34,7 @@ navLink.forEach(link => {
   }
 });
 
-// herlaadt pagina bij draaien
+// herlaad pagina bij draaien
 if (screen.orientation) {
 screen.orientation.addEventListener('change', () => {
   document.location.reload();
@@ -160,38 +160,49 @@ const photos = [
     imgNameHi: 'dj-piggel-006.webp'
   },
   {
-    index: 8,
+    index: 7,
     imgName: 'dj-piggel-008.webp',
     imgNameHi: 'dj-piggel-008.webp'
   },
   {
-    index: 9,
+    index: 8,
     imgName: 'dj-piggel-009.webp',
     imgNameHi: 'dj-piggel-009.webp'
   },
   {
-    index: 10,
+    index: 9,
     imgName: 'dj-piggel-010.webp',
     imgNameHi: 'dj-piggel-010.webp'
   },
   {
-    index: 11,
+    index: 10,
     imgName: 'dj-piggel-011@0.5x.webp',
     imgNameHi: 'dj-piggel-011.webp'
   },
   {
-    index: 12,
+    index: 11,
     imgName: 'dj-piggel-012@0.5x.webp',
     imgNameHi: 'dj-piggel-012.webp'
+  },
+{
+    index: 12,
+    imgName: 'dj-piggel-013@0.5x.webp',
+    imgNameHi: 'dj-piggel-013.webp'
+  },
+{
+    index: 13,
+    imgName: 'dj-piggel-014@0.5x.webp',
+    imgNameHi: 'dj-piggel-014.webp'
   },
 ];
 
 // initialize carousel
+const photosSection = document.getElementById('photos')
 const imageElement = document.querySelector('.carousel-item img');
 const imageModal = document.querySelector('.carousel-modal');
 const btnCloseModal = imageModal.querySelector('.btn-close');
 const imageModalImage = imageModal.querySelector('img');
-let image = photos[0];
+let image = photos[11]; // index of first image to be shown
 let index = image.index;
 let imageSrc = `assets/photos/${image.imgName}`;
 let imageSrcHi = `assets/photos/${image.imgNameHi}`;
@@ -201,24 +212,28 @@ const previous = document.querySelector('.previous');
 const next = document.querySelector('.next');
 
 function showPrevious () {
-  index = image.index - 1;
+  index --;
   if (index <= 0) {
     index = photos.length
   }
     image = photos[index - 1];
     imageSrc = `assets/photos/${image.imgName}`;
-    imageSrcHi = `assets/photos/${image.imgNameHi}`;
+    if (image.imgNameHi) {
+      imageSrcHi = `assets/photos/${image.imgNameHi}`;
+    }
     imageElement.src = imageSrc;
 }
 
 function showNext () {
-  index = image.index + 1;
+  index ++;
   if (index > photos.length) {
     index = 1;
   }
     image = photos[index - 1];
     imageSrc = `assets/photos/${image.imgName}`;
-    imageSrcHi = `assets/photos/${image.imgNameHi}`;
+    if (imageSrcHi) {
+      imageSrcHi = `assets/photos/${image.imgNameHi}`;
+    }
     imageElement.src = imageSrc;
 }
 
@@ -230,6 +245,7 @@ function showModal () {
 function closeModal () {
   imageModalImage.src= '';
   imageModal.classList.remove('___show');
+  photosSection.focus();
 }
 
 previous.addEventListener('click', showPrevious);
@@ -237,6 +253,16 @@ next.addEventListener('click', showNext);
 imageElement.addEventListener('click', showModal);
 btnCloseModal.addEventListener('click', closeModal);
 imageModalImage.addEventListener('click', closeModal);
+
+photosSection.addEventListener('keyup', event => {
+  console.log(event)
+  if (event.key === 'ArrowRight') {
+    showNext();
+  } else if (event.key === 'ArrowLeft') {
+    showPrevious()
+  }
+})
+
 
 cardImage.forEach(card => card.addEventListener('click', (event) => {
   imageModalImage.src = event.target.dataset.imgHires;
