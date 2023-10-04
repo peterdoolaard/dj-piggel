@@ -263,7 +263,6 @@ photosSection.addEventListener('keyup', event => {
   }
 })
 
-
 cardImage.forEach(card => card.addEventListener('click', (event) => {
   imageModalImage.src = event.target.dataset.imgHires;
   imageModal.classList.add('___show');
