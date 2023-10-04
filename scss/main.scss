@@ -431,20 +431,21 @@ main {
 }
 
 .carousel-item {
+	align-items: start;
 	display: grid;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: auto 1fr auto;
 	inline-size: 100%;
 	max-block-size: 70vh;
 	position: relative;
 
 	> .btn {
-		align-self: center;
 		block-size: 48px;
 		border: none;
 		border-radius: 50%;
 		content: '';
-		cursor: hand;
+		cursor: pointer;
 		inline-size: 48px;
+		margin: 0.5rem;
 		padding: 16px;
 		z-index: 1;
 
